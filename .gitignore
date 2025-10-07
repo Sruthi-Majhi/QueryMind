@@ -1,5 +1,9 @@
+del .\Frontend\src\.gitignore
+@"
 # Dependencies
 node_modules/
+Frontend/node_modules/
+Backend/node_modules/
 
 # Builds
 dist/
@@ -11,8 +15,5 @@ Backend/build/
 
 # Env/Secrets
 .env
-.env.local
-
-# Misc
-.vscode/
-.DS_Store
+.env.*
+"@ | Set-Content -Encoding UTF8 .gitignore
