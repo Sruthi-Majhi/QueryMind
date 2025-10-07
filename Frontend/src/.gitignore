@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+build/
+Frontend/dist/
+Frontend/build/
+Backend/dist/
+Backend/build/
+
+# Env/Secrets
+.env
+.env.local
+
+# Misc
+.vscode/
+.DS_Store
