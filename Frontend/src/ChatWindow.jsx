@@ -71,19 +71,6 @@ function ChatWindow()
 
 
 
-    // useEffect(() => 
-    // {
-    //     if (prompt && reply)
-    //     {
-    //         setPrevChats(prev => ([
-    //             ...prev,
-    //             { role: 'user', content: prompt },
-    //             { role: 'assistant', content: reply }
-    //         ]));
-    //         if (setNewChat) { setNewChat(false); }
-    //         setPrompt("");
-    //     }
-    // }, [reply]);
 
 
 
@@ -102,7 +89,7 @@ function ChatWindow()
             </div>
             <Chat></Chat>
 
-            <ScaleLoader color="#fff" loading={loading}>
+            <ScaleLoader color="#1abc9c" loading={loading}>
             </ScaleLoader>
             
             <div className="chatInput">
