@@ -1,0 +1,19 @@
+del .\Frontend\src\.gitignore
+@"
+# Dependencies
+node_modules/
+Frontend/node_modules/
+Backend/node_modules/
+
+# Builds
+dist/
+build/
+Frontend/dist/
+Frontend/build/
+Backend/dist/
+Backend/build/
+
+# Env/Secrets
+.env
+.env.*
+"@ | Set-Content -Encoding UTF8 .gitignore

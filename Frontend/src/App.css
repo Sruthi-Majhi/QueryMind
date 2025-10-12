@@ -1,0 +1,35 @@
+*
+{
+    color: #374151;
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.main
+{
+    background-color: #ffffff;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] * {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] body {
+    background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .main {
+    background-color: #1a1a1a;
+}

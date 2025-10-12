@@ -1,0 +1,190 @@
+.sidebar
+{
+    background-color: #ffffff;
+    color: #374151;
+    height: 100vh;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #e5e7eb;
+}
+
+
+.logo
+{
+    height: 28px;
+    width: 28px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+}
+
+button
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 12px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    color: #374151;
+    font-weight: 500;
+}
+
+.history
+{
+    margin: 12px;
+    padding: 8px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.history::-webkit-scrollbar {
+    width: 4px;
+}
+
+.history::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.history::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.history::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+.history li{
+    list-style-type: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9fafb;
+    color: #374151;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+button span
+{
+    font-size: 20px;
+}
+
+button:hover
+{
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.history li:hover
+{
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.history li.highlighted {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.history li .fa-trash {
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: #ef4444;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 4px;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.history li:hover .fa-trash {
+    opacity: 1;
+}
+
+.history li .fa-trash:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+.sign
+{
+    padding: 16px;
+    margin: 12px;
+    font-size: 13px;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    background-color: #f9fafb;
+    border-radius: 8px;
+}
+
+.sign:hover {
+    color: #374151;
+    background-color: #f3f4f6;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .sidebar {
+    background-color: #1a1a1a;
+    color: #f9fafb;
+    border-right: 1px solid #374151;
+}
+
+[data-theme="dark"] button {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .history li {
+    background-color: #374151;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .history li:hover {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .history li.highlighted {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .sign {
+    background-color: #374151;
+    color: #9ca3af;
+    border-top: 1px solid #4b5563;
+}
+
+[data-theme="dark"] .sign:hover {
+    color: #f9fafb;
+    background-color: #4b5563;
+}
+
+[data-theme="dark"] .logo {
+    background-color: #ffffff;
+    border: 1px solid #4b5563;
+}

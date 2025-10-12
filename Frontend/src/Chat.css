@@ -1,0 +1,362 @@
+.chats {
+    max-width: 700px;
+    overflow-y: auto;
+    padding: 8rem;
+    /* nicer scrollbars */
+    scrollbar-width: thin;                /* Firefox */
+    scrollbar-color: #555 transparent;    /* Firefox */
+}
+
+/* WebKit (Chromium, Safari, Edge) */
+.chats::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 8px;
+}
+
+.chats::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+}
+
+
+.gptDiv {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.userMessage {
+    background-color: #10b981;
+    padding: 12px 18px;
+    border-radius: 18px 18px 4px 18px;
+    margin-left: 4rem;
+    max-width: 500px;
+    width: fit-content;
+    color: white;
+    font-weight: 500;
+}
+
+.gptMessage {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 12px 18px;
+    border-radius: 18px 18px 18px 4px;
+    margin-right: 4rem;
+    max-width: 500px;
+    width: fit-content;
+    text-align: left;
+    color: #374151;
+    font-weight: 400;
+}
+
+.hljs{
+    border-radius: 12px;
+    background-color: #f3f4f6 !important;
+    border: 1px solid #e5e7eb;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+pre{
+    white-space: pre-wrap;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    color: #374151;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Vibrant syntax highlighting for light mode */
+.hljs-keyword {
+    color: #e74c3c !important;
+    font-weight: 700;
+}
+
+.hljs-string {
+    color: #27ae60 !important;
+    font-weight: 600;
+}
+
+.hljs-comment {
+    color: #95a5a6 !important;
+    font-style: italic;
+}
+
+.hljs-number {
+    color: #f39c12 !important;
+    font-weight: 700;
+}
+
+.hljs-function {
+    color: #9b59b6 !important;
+    font-weight: 700;
+}
+
+.hljs-variable {
+    color: #e67e22 !important;
+    font-weight: 600;
+}
+
+.hljs-built_in {
+    color: #3498db !important;
+    font-weight: 700;
+}
+
+.hljs-title {
+    color: #8e44ad !important;
+    font-weight: 700;
+}
+
+.hljs-attr {
+    color: #2980b9 !important;
+    font-weight: 600;
+}
+
+.hljs-tag {
+    color: #16a085 !important;
+    font-weight: 700;
+}
+
+.hljs-name {
+    color: #1abc9c !important;
+    font-weight: 700;
+}
+
+.hljs-class {
+    color: #8e44ad !important;
+    font-weight: 700;
+}
+
+.hljs-operator {
+    color: #e74c3c !important;
+    font-weight: 600;
+}
+
+.hljs-literal {
+    color: #f39c12 !important;
+    font-weight: 600;
+}
+
+/* Additional vibrant colors for statements and other elements */
+.hljs-statement {
+    color: #e74c3c !important;
+    font-weight: 700;
+}
+
+.hljs-declaration {
+    color: #9b59b6 !important;
+    font-weight: 700;
+}
+
+.hljs-type {
+    color: #8e44ad !important;
+    font-weight: 700;
+}
+
+.hljs-params {
+    color: #e67e22 !important;
+    font-weight: 600;
+}
+
+.hljs-property {
+    color: #16a085 !important;
+    font-weight: 600;
+}
+
+.hljs-selector-tag {
+    color: #1abc9c !important;
+    font-weight: 700;
+}
+
+.hljs-selector-id {
+    color: #27ae60 !important;
+    font-weight: 700;
+}
+
+.hljs-selector-class {
+    color: #2ecc71 !important;
+    font-weight: 700;
+}
+
+.hljs-selector-attr {
+    color: #3498db !important;
+    font-weight: 600;
+}
+
+.hljs-selector-pseudo {
+    color: #2980b9 !important;
+    font-weight: 600;
+}
+
+.hljs-meta {
+    color: #e74c3c !important;
+    font-weight: 600;
+}
+
+.hljs-meta-keyword {
+    color: #c0392b !important;
+    font-weight: 700;
+}
+
+.hljs-meta-string {
+    color: #27ae60 !important;
+    font-weight: 600;
+}
+
+.hljs-section {
+    color: #8e44ad !important;
+    font-weight: 700;
+}
+
+.hljs-addition {
+    color: #27ae60 !important;
+    font-weight: 600;
+}
+
+.hljs-deletion {
+    color: #e74c3c !important;
+    font-weight: 600;
+}
+
+.hljs-emphasis {
+    color: #9b59b6 !important;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.hljs-strong {
+    color: #e74c3c !important;
+    font-weight: 800;
+}
+
+/* Clean, professional syntax highlighting */
+.hljs {
+    color: #24292e;
+    font-family: 'SFMono-Regular', 'Monaco', 'Consolas', monospace;
+}
+
+/* Let the GitHub theme handle the colors naturally */
+.hljs-keyword,
+.hljs-string,
+.hljs-comment,
+.hljs-number,
+.hljs-function,
+.hljs-variable,
+.hljs-built_in,
+.hljs-title,
+.hljs-attr,
+.hljs-tag,
+.hljs-name {
+    /* Let the GitHub theme colors show through */
+    text-shadow: none;
+}
+
+/* New chat heading styling */
+h1 {
+    color: #374151;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .gptMessage {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .hljs {
+    background-color: #1a1a1a !important;
+    border-color: #4b5563;
+    font-family: 'SFMono-Regular', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f8f8f2;
+}
+
+[data-theme="dark"] pre {
+    background-color: #1a1a1a;
+    border-color: #4b5563;
+    color: #f8f8f2;
+    font-family: 'SFMono-Regular', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Dark mode syntax highlighting for dark backgrounds */
+[data-theme="dark"] .hljs-keyword {
+    color: #ff79c6 !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-string {
+    color: #f1fa8c !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .hljs-comment {
+    color: #6272a4 !important;
+    font-style: italic;
+}
+
+[data-theme="dark"] .hljs-number {
+    color: #bd93f9 !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-function {
+    color: #8be9fd !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-variable {
+    color: #50fa7b !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .hljs-built_in {
+    color: #8be9fd !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-title {
+    color: #8be9fd !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-attr {
+    color: #50fa7b !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .hljs-tag {
+    color: #ff79c6 !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .hljs-name {
+    color: #ff79c6 !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] h1 {
+    color: #f9fafb;
+}
