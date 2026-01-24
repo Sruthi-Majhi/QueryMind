@@ -1,101 +1,74 @@
-import "./Sidebar.css";
-import { useContext, useEffect } from "react";
-import { MyContext } from "./MyContext.jsx";
-import {v1 as uuidv1} from "uuid";
+import './Sidebar.css';
+import blacklogo from './assets/blacklogo.png';
+import { MyContext } from './MyContext';
+import { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-function Sidebar() {
-    const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
+function Sidebar(params) {
+    const { allThreads, setCurrThreadId, setNewChat, fetchThreads, currThreadId, setPrevChats } = useContext(MyContext);
 
-    const getAllThreads = async () => {
+    const handleNewChat = () => {
+        setCurrThreadId(uuidv4());
+        setNewChat(true);
+    };
+
+    const handleThreadClick = (threadId) => {
+        setCurrThreadId(threadId);
+        setNewChat(false);
+    };
+
+    const handleDeleteThread = async (threadId, event) => {
+        event.stopPropagation(); // Prevent triggering the thread click
+        
         try {
-            const response = await fetch("http://localhost:8080/api/thread");
-            const res = await response.json();
-            const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.threadTitle}));
-            //console.log(filteredData);
-            setAllThreads(filteredData);
-        } catch(err) {
-            console.log(err);
+            const response = await fetch( `${import.meta.env.VITE_BACKEND_URL}/api/thread/${threadId}`, {
+                method: 'DELETE',
+            });
+            
+            if (response.ok) {
+                // Refresh the thread list
+                fetchThreads();
+                
+                // If the deleted thread was currently selected, start a new chat
+                if (currThreadId === threadId) {
+                    setCurrThreadId(uuidv4());
+                    setNewChat(true);
+                    setPrevChats([]);
+                }
+            } else {
+                console.error('Failed to delete thread');
+            }
+        } catch (error) {
+            console.error('Error deleting thread:', error);
         }
     };
 
-    useEffect(() => {
-        getAllThreads();
-    }, [currThreadId])
-
-
-    const createNewChat = () => {
-        setNewChat(true);
-        setPrompt("");
-        setReply(null);
-        setCurrThreadId(uuidv1());
-        setPrevChats([]);
-    }
-
-    const changeThread = async (newThreadId) => {
-        setCurrThreadId(newThreadId);
-
-        try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
-            const res = await response.json();
-            console.log(res);
-            setPrevChats(res);
-            setNewChat(false);
-            setReply(null);
-        } catch(err) {
-            console.log(err);
-        }
-    }   
-
-    const deleteThread = async (threadId) => {
-        try {
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});
-            const res = await response.json();
-            console.log(res);
-
-            //updated threads re-render
-            setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
-
-            if(threadId === currThreadId) {
-                createNewChat();
-            }
-
-        } catch(err) {
-            console.log(err);
-        }
-    }
-
     return (
-        <section className="sidebar">
-            <button onClick={createNewChat}>
-                <img src="src/assets/blacklogo.png" alt="gpt logo" className="logo"></img>
+        <section className='sidebar'>
+            <button onClick={handleNewChat}>
+                <img className= 'logo' src={blacklogo} alt="logo" />
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
-
-            <ul className="history">
-                {
-                    allThreads?.map((thread, idx) => (
-                        <li key={idx} 
-                            onClick={(e) => changeThread(thread.threadId)}
-                            className={thread.threadId === currThreadId ? "highlighted": " "}
+            <ul className='history'>
+                {allThreads.map(thread => (
+                    <li key={thread.threadId} onClick={() => handleThreadClick(thread.threadId)}>
+                        <span className="thread-title">{thread.threadTitle}</span>
+                        <button 
+                            className="delete-thread-btn" 
+                            onClick={(e) => handleDeleteThread(thread.threadId, e)}
+                            title="Delete conversation"
                         >
-                            {thread.title}
-                            <i className="fa-solid fa-trash"
-                                onClick={(e) => {
-                                    e.stopPropagation(); //stop event bubbling
-                                    deleteThread(thread.threadId);
-                                }}
-                            ></i>
-                        </li>
-                    ))
-                }
+                            <i className="fa-solid fa-trash"></i>
+                        </button>
+                    </li>
+                ))}
             </ul>
- 
-            <div className="sign">
-                <p>QueryMind - AI Chat Bot</p>
+
+            <div className='sign'>
+                <p>By Sruthi &hearts;</p>
             </div>
         </section>
-    )
+        )
 }
-
 export default Sidebar;

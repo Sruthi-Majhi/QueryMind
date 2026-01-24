@@ -72,7 +72,7 @@ router.post("/chat", async (req, res) => {
         if (!thread) {
             thread = new Thread({
                 threadId,
-                threadTitle: message,
+                threadTitle: message.length > 50 ? message.substring(0, 50) + "..." : message,
                 messages: [
                     {
                         role: "user",
@@ -97,6 +97,7 @@ router.post("/chat", async (req, res) => {
             content: assistantReply
         });
 
+        thread.updatedAt = new Date();
         await thread.save();
 
         res.json({ reply: assistantReply });

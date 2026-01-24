@@ -99,6 +99,34 @@ button:hover
     color: #ffffff;
 }
 
+.thread-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.delete-thread-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    font-size: 12px;
+}
+
+.history li:hover .delete-thread-btn {
+    opacity: 1;
+}
+
+.delete-thread-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
 .history li.highlighted {
     background-color: #10b981;
     color: #ffffff;

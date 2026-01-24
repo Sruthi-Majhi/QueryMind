@@ -35,7 +35,7 @@ const ThreadSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-});
+}, { timestamps: true });
 
 const Thread = mongoose.model("Thread", ThreadSchema);
 export default Thread;

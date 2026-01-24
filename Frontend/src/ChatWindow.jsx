@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 function ChatWindow()
 {
-    const { prompt, setPrompt, reply, setReply, currThreadId, setCurrThreadId, prevChats, setPrevChats, setNewChat, darkMode, toggleDarkMode} = useContext(MyContext);
+    const { prompt, setPrompt, reply, setReply, currThreadId, setCurrThreadId, prevChats, setPrevChats, setNewChat, darkMode, toggleDarkMode, fetchThreads} = useContext(MyContext);
     const [loading, setLoading] = useState(false);
 
     const ensureThreadId = () => {
@@ -42,10 +42,12 @@ function ChatWindow()
     
 
         try {
-            const response = await fetch('http://localhost:8080/api/chat', options);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/chat`,
+  options);
             const data = await response.json();
             console.log('chat reply:', data);
             if (data?.reply) setReply(data.reply);
+            fetchThreads(); // Refresh thread list after new message
         } catch (err) {
             console.error('chat error:', err);
         }
