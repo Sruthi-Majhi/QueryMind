@@ -15,7 +15,7 @@ function App() {
 
   const fetchThreads = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/thread`);
       const threads = await response.json();
       setAllThreads(threads);
     } catch (error) {
